@@ -7,7 +7,7 @@
     <title>Spatial-R</title>
     <atom:link href="http://spatial-r.github.io/en/feed/" rel="self" type="application/rss+xml" />
     <link>http://chengjun.github.io</link>
-    <lastBuildDate>2015-03-27T16:09:04+08:00</lastBuildDate>
+    <lastBuildDate>2015-03-27T16:54:29+08:00</lastBuildDate>
     <webMaster>wangchj04@gmail.com</webMaster>
     
     <item>
@@ -60,6 +60,171 @@
   An appropriate time to stratify the date depends on your experience. The way to create the variable <strong>strata</strong> is not a difficult thing after the time strata is fixed.    </p>
 
 <hr />
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Static Map in R</title>
+      <link>http://spatial-r.github.io/en/2014/07/Static-Maps-In-R/</link>
+      <pubDate>2014-07-19T00:00:00+08:00</pubDate>
+      <author>Spatial-R</author>
+      <guid>http://spatial-r.github.io/en/2014/07/Static-Maps-In-R</guid>
+      <content:encoded><![CDATA[<p>Numerous packages in R sofware can help you creat the geographic map. Here, i will summarize the packages related to the map so as to visualizate your geographical data more conveniently.</p>
+
+<h2 id="origin-map-data">Origin map data</h2>
+
+<p>If don’t have the map data, you can download them from the <a href="http://www.gadm.org/">GADM</a> by the function <strong>getDate</strong> in the <strong>raster</strong> package. The website supplies the “RData” files (including four levels) which can be used in R environment directly. Alternatively, you can download the “shapefile” file and then use the function <strong>readShapePoly</strong> (in the maptools package) to read the data. Considering the specificity for  the china map, i had put all the relevant data in my github: <a href="https://github.com/Spatial-R/China-Map-Data">https://github.com/Spatial-R/China-Map-Data</a>. The codes to download the data from GADM are as follow:</p>
+
+<pre><code>library(raster)
+adm &lt;- getData('GADM', country='China', level=1)
+adm1 &lt;- getData('GADM', country='Taiwan', level=0)
+adm2 &lt;- getData('GADM', country='Hong kong', level=0)
+adm3 &lt;- getData('GADM', country='Macao', level=0)
+plot(adm);plot(adm1, add = T);plot(adm2, add = T);plot(adm3, add = T)
+</code></pre>
+
+<p>The <strong>maps</strong> package also supplies the map data for the world. However, the data is out of date and the China data doesn’t show the Chongqing city. Generally speaking, the data from GAMD is the best choose.</p>
+
+<h2 id="sp-and-maptools-package">Sp and maptools package</h2>
+
+<p>Sp and maptools package are the basic packages in R sofware to deal with the shapefile file. After you have read the map data, you just use the <strong>plot</strong> function to get the map.</p>
+
+<pre><code>library(sp);library(maptools)
+china.map&lt;-readShapePoly("bou2_4p.shp")
+plot(china.map,main="China map in maptools package")
+points(x=120.2,y=30.3,col="red");text(x=120.2,y=30.3,"Hangzhou",col="Blue")
+</code></pre>
+
+<p>The way to fill the polys and points with different colors can be found in <a href="http://site.douban.com/182577/widget/notes/10568279/note/257898418/">here</a> and <a href="http://yihui.name/cn/2008/10/china-map-and-city-locations-with-r/">here</a>.</p>
+
+<h2 id="rworldmap-package">Rworldmap package</h2>
+
+<p>Rworldmap is a package for visualising global data, concentrating on data referenced by country codes or gridded at half degree resolution. The mapping process then involves 3 steps (or 2 if your data are already in an R dataframe):</p>
+
+<ol>
+  <li>read data into R</li>
+  <li>join data to a map (using function <strong>joinCountryData2Map()</strong>)</li>
+  <li>display the map (using function <strong>mapCountryData</strong>)</li>
+</ol>
+
+<p>The example is as follow:</p>
+
+<pre><code>library(rworldmap)
+data(countryExData)
+sPDF &lt;- joinCountryData2Map( countryExData,joinCode = "ISO3", nameJoinColumn = "ISO3V10")
+mapParams &lt;- mapCountryData( sPDF, nameColumnToPlot="BIODIVERSITY",addLegend=FALSE )
+do.call( addMapLegend, c(mapParams, legendWidth=0.5, legendMar =4))
+</code></pre>
+
+<h2 id="ggplot2-package">Ggplot2 package</h2>
+<p>Ggplot2 package offers great power to plot data in R. The plots are designed to comply with the grammar of graphics philosophy and can be produced to a publishable level relatively easily. After you have read the shapefile data in R, the <strong>fortify</strong> function can be applied to transformed the shapefile to dataframe which can be directly used to the ggplot2 plot. The example is follow:</p>
+
+<pre><code> library(maptools);library(ggplot2)
+ china_map&lt;-readShapePoly("bou2_4p.shp")
+ china_map1&lt;-fortify(china_map,region='BOU2_4M_ID') ### transform to the dataframe
+ ggplot(china_map1, aes(long, lat)) +theme_bw(base_family="serif",base_size=10)+
+ geom_path(aes(long,lat, group=group, fill=hole), color="black", size=0.3)
+</code></pre>
+
+<h2 id="googlemap">Googlemap</h2>
+
+<p>Ggmap,plotGoogleMaps and RgoogleMaps packages can use the googlemap API to get or display the map data. Moreover, the downloaded map can combine with ggplot package. However, the googla map doesn’t work in China for a long time. </p>
+
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Coordinate Data from Website</title>
+      <link>http://spatial-r.github.io/en/2014/06/Two-ways-to-get-coordinate-data/</link>
+      <pubDate>2014-06-11T00:00:00+08:00</pubDate>
+      <author>Spatial-R</author>
+      <guid>http://spatial-r.github.io/en/2014/06/Two-ways-to-get-coordinate-data</guid>
+      <content:encoded><![CDATA[<p>The longlat data is essential prerequisite for the spatial analysis. Especially in epidemiology, the detail address data is there. The only thing you need do is to transfrom the address into the coordinate. If the data is not large, you can get the coordinate data one by one in <a href="http://maps.google.com/">google map</a> or <a href="http://maps.baidu.com/">baidu map</a>. However, when number of the data is above 50, the “input-copy” way is extremly boring and insecurity. Thanks to the open API in google map and baidu map, you can get the coordinate data very conveniently. Note the format of coordinate data in google map and baidu map is different. If you get the coordinate data from google map and then show it in baidu map, the deviation comes. </p>
+
+<h2 id="google-map">Google Map</h2>
+<p>Google place API is powerful in the tranformation for the english address. Make sure the format of the address is OK. You can copy the code into your R console before input your google place API(Apply for your API in <a href="https://code.google.com/apis/console/">https://code.google.com/apis/console/</a>). Note that the google maps api has a daily limit of 2,500 so that your vector shouldn’t be too long. The code you can find in Neal D. Goldstein, Amy H. Auchincloss and Brian K. Lee.</p>
+
+<h2 id="baidu-map">Baidu Map</h2>
+<p>Baed on the baidu map geocoding API v2.0, you can search for the coordinate for the chinese address. There is no daily limitation for this API. At the same time, you also can transform the Chinese address into english, then use the goole place API. The code is as follow:</p>
+
+<pre><code>library(XML);library(stringr);library(RCurl);library(reshape)
+key = ""  #### Copy your own key here
+get.latlong &lt;- function(data) {
+  url.base &lt;- "http://api.map.baidu.com/geocoder/v2/?ak="
+  url &lt;- paste(url.base, key, "&amp;callback=renderOption&amp;output=xml&amp;address=",data, sep = "")
+  url.result &lt;- getURL(url)
+  longlat &lt;- unlist(str_match_all(url.result, "[0-9]+[.]*[0-9]*[&lt;&gt;]"))[c(2:3)]
+   }
+ lt &lt;- data.frame(t(sapply(dat, get.latlong)))
+ lt[, 1] &lt;- gsub("&lt;", "", lt[, 1]);lt[, 2] &lt;- gsub("&lt;", "", lt[, 2])  ### The final result is in lt
+</code></pre>
+
+<p>Moreover, you can use the geoconv API 2.0 to transform the format of the geocoordinate data(form google map or sogou map to baidu map)</p>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>Which way you choose is based on your data and the platform to show the result. Baidu map api is suitable for chinese address and google map is for english address. </p>
+]]></content:encoded>
+    </item>
+    
+    <item>
+      <title>Air Quality Data from Website</title>
+      <link>http://spatial-r.github.io/en/2014/06/How-to-get-air-quality-data-from-website/</link>
+      <pubDate>2014-06-11T00:00:00+08:00</pubDate>
+      <author>Spatial-R</author>
+      <guid>http://spatial-r.github.io/en/2014/06/How-to-get-air-quality-data-from-website</guid>
+      <content:encoded><![CDATA[<p>More people were concerned about the air quality in China, espicially the concentration of PM2.5 that is believed to pose the greatest health risks. If you want to analysis the relationship between the air pollution or tempreture and the mortality, the access to the data on the air pollutants is requsite. Here, i will introduce three ways to get the air quality data from the website.</p>
+
+<h2 id="frist-website">Frist website</h2>
+<p>The website: <a href="http://aqicn.org/map/cn/">http://aqicn.org/map/cn/</a> supplies the real-time air quality index for PM10,PM2.5,SO2,NO2,O3 and NO. You can backstepping the concentration for each air pollutant based on the air quality index, respectively. The format to air quality index is in the China air quality standard (2012). Moreover, the website gives the meteorology data such as Temperature, dew point temperature, pressure,humidity and wind speed. The code to catch the data is as follow:</p>
+
+<pre><code>require(RCurl);require(XML);require(rjson);library(reshape);library(data.table)
+options(verbose = TRUE); URL = "http://aqicn.org/city/all/"
+doc = htmlParse(URL);  nodes = getNodeSet(doc, "//a[@href]")
+hrefs = sapply(nodes, function(x) xmlGetAttr(x, "href"))  ###get all the site
+ks = which(hrefs == "http://aqicn.org/city/beijing/dongchengdongsi/")
+ks1 = which(hrefs == "http://aqicn.org/city/hongkong/")
+ref2 = hrefs[ks:ks1]  ### get the site in China
+
+data = list();i = 1
+while (i &lt; (n/3 + 1)) {
+   url = ref2[i]; names = substr(url, 23, (nchar(url) - 1))
+   try(y &lt;- readHTMLTable(url, warn = FALSE, which = 6), silent = T)
+ if (length(y) == "5") {
+   mo = data.frame(y[, c(1, 3)])
+   dy = data.frame(t(as.numeric(as.character(mo$Current))))
+   names(dy) &lt;- as.character(mo$Var.1); dy$site = rep(names, 1)
+   data[[i]] = dy;i = i + 1
+  } else {
+     i = i + 1
+    }
+ }
+now.time = substr(Sys.time(), 1, 13)
+file.name = paste(now.time, "-pollutant", ".csv", sep = "")
+dat = ldply(data, rbind.fill)
+</code></pre>
+
+<h2 id="second-website">Second website</h2>
+<p>The website: <a href="http://www.pm25.in/api_doc">http://www.pm25.in/api_doc</a> supply an API to the data in National Bureau of Environmental Protection. You just apply for a appkey and then you can get the air quality data in 190 cities in China conveniently. The website also provide detailed materials about the way to ues the appkey. Thanks to the <a href="http://weibo.com/gzanson?sudaref=www.pm25.in">anson</a> and his team. The code is as follow:</p>
+
+<pre><code> library(RCurl);library(XML);library(plyr)
+ url="http://www.pm25.in/api/querys/all_cities.json?token=qrzh7e8i9k9mmvf6cQ48"
+ pm=getURL(url);pm2 &lt;-fromJSON(pm);pm3=data.frame(do.call("rbind",pm2))
+ pm4=apply(pm3,2,as.character); dt=gsub("-","",substr(pm4[1,21],1,13))
+</code></pre>
+
+<h2 id="third-website">Third website</h2>
+<p>Some website also punish the air quality data for certain city. For example, the Haikou municipal environmental protection bureau provide the data in its website:<a href="http://220.174.250.107:9808/Views/Home/AirCityIndex.aspx">http://220.174.250.107:9808/Views/Home/AirCityIndex.aspx</a>. You also can use R to download the data. The code is follow:</p>
+
+<pre><code>library(XML);library(RCurl)
+url="http://220.174.250.107:9808/Views/Home/AirCityIndex.aspx"
+dat&lt;-readHTMLTable(getURL(url),as.data.frame=TRUE,which=5)
+ names(dat)&lt;-c("site","so2","no2","pm10","pm10-24","co","03-1","o3-8","pm2.5","pm2.5-24")
+ y=paste(as.Date(now),"-",as.POSIXlt(now)$hour,".csv",sep="")
+</code></pre>
+
+<h2 id="conclusion">Conclusion</h2>
+<p>Based on the R sofware, you can get the air quality data very conveniently. However, if you want to collect the data consistently, the while loop will work well and let your compute run the code in the certain time, for example in the integral point. </p>
+
 ]]></content:encoded>
     </item>
     
