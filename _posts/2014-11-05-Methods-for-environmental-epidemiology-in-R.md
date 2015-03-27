@@ -1,14 +1,15 @@
-﻿---
+---
 layout: post
 title: "Methods for environmental epidemiology in R"
-date: 2013-08-14 14:23
+date: 2014-08-14
 comments: true
 categories: 
-- R
+- statistical analysis
 tags:
 - Time series
 - Environmental Epidemiology
 ---
+
 
 
 Recently, the short effect of air pollution on the mortality have drawn more and more attention in China. Many experts have try different methods to analysis the impact of air pollution on health. The study design has fallen into four types: ecological time series, case-crossover, panel and cohort studies. In general, the first three methods are the best way to analysis the short effect (acute effect), whereas the cohort study is used to estimate the acute and chronic effect of the air pollution. Here, i will introduce the ecological time series and case-crossover methods based on the R software. And later, i will cover the hierarchical model for multi-sites time series study to pooling the risk across locations. It is also noticed that two method also can be applied to other study, fox example, the short effect of meteorological factors on mortality or acute infectious disease. 
