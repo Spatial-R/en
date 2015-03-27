@@ -12,6 +12,7 @@ Zhejiang Provincial Center for Disease Control and Prevention (Zhejiang CDC)
 Email: zhangbing4502431@outlook.com; Homepage: <http://spatial-r.github.io/>
 
 ----------------------------------
+
 ## Research Interest
    Spatial analysis, Spatial-temporal, Data visualization.
 
@@ -23,17 +24,20 @@ Email: zhangbing4502431@outlook.com; Homepage: <http://spatial-r.github.io/>
 - 2007-2012, Bachelor of Public health, Huazhong University of Science and Technology, China
 
 --------------------------------
+
 ## Publications(Chinese)
 
 1. Relationship between meteorological factors and parameters of air quality in wuhan by partial least squares regression[J]. Journal of Environmental &amp; Occupational Medicine,2014,31(4): 241-246.
 1. Spatial distributions of major air pollutants in 110 cities in China,2004-2008[J]. Journal of Environmental &amp; Occupational Medicine,2013,30(7): 498-502.
 
 ------------------------------
+
 ## Professional Experience
 
 I currently worked in the Zhejiang Provincial Center for Disease Control and Prevention
 
 -------------------------------------------
+
 ## Computer Skills
 
 I like playing with computer tools for building web pages and statistical computation & graphics. I improve the efficiency of my work with the aid of programming (i.e. work hard to be lazy).
