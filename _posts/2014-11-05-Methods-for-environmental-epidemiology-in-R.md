@@ -1,6 +1,6 @@
----
+﻿---
 layout: post
-title: "Understanding Bass diffusion model with R"
+title: "Methods for environmental epidemiology in R"
 date: 2013-08-14 14:23
 comments: true
 categories: 
