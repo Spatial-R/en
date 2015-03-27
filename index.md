@@ -1,5 +1,5 @@
 ---
-title: Computational Communication
+title: Spatial and Spatial-temporal
 layout: page
 ---
 
