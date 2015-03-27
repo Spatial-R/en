@@ -4,18 +4,12 @@ layout: page
 comments: yes
 ---
 
-### Personal webpage
+## Statistics
 
-- [Cheng-Jun Wang](http://chengjun.github.io/): About me.
-- [Blog](http://chengjun.github.io/cn/): Chinese blog.
-- [Blog](http://chengjun.github.io/en/): English blog.
-- [CV](http://chengjun.github.io/cv/): My CV
-- [Slides](http://chengjun.github.io/slides/): My slides.
+- [Yihui Xie](http://yihui.name/): Animation, knitr, formatR, ...
+- [Roger D. Peng](http://www.biostat.jhsph.edu/~rpeng/): Associate Professor in department of biostatistics,Johns Hopkins Bloomberg School of Public Health
+- [Antonio Gasparrini](http://www.ag-myresearch.com/) : DLNM package(distributed lag non-liner models)
 
-### Web Mining Lab
-
-- [Web Mining Lab](weblab.com.cityu.edu.hk/): Lab website.
-
-### R Language
+## R Language
 
 - [The R Project](http://www.r-project.org/)
