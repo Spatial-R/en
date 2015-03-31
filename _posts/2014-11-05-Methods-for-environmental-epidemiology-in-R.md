@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Methods for environmental epidemiology in R"
+title: "Methods for Environmental Epidemiology in R"
 date: 2014-08-14
 comments: true
 categories: 
@@ -16,6 +16,7 @@ Recently, the short effect of air pollution on the mortality have drawn more and
 （Some methods can be found in the book: ****Statistical methods in environmental epidemiology with R: A case study in air pollution and health****. You can download it form [here](http://bbs.pinggu.org/thread-710855-1-1.html)）
 
 -------------------------------
+
 ## Time series and case-crossover
 
  Time series and case-crossover analysis are the most common methods used to estimate the short effects of air pollution on health. Both methods typically treat the outcome as the counts representing the number of times a particular event occurred on a given day. Time series allows for over-dispersion  associated with the poisson distribution and controls for the long-term trend and seasonality using the nonparametric or parametric splines. The case-crossover method compares the exposure during a case day when the event occurred with the exposure in nearby control days and examine whether the event is associated with the exposure. It is obvious that the confounding related the individual characteristics are controlled by the design. Both methods have the advantage and weakness, therefore, the choose to the analysis method depends your purpose. Some experts also compared two methods and you can download the paper from [here](http://www.sciencedirect.com/science/article/pii/S0048969710010983)
@@ -23,6 +24,7 @@ Recently, the short effect of air pollution on the mortality have drawn more and
  No matter which method you choose, you should download the **tsModel** package into R software. Thanks to Roger D. Peng, who have develop the package for statistical methods in environmental epidemiology. Another attribution for him is the reproducible research. His homepage can be found [here](http://www.biostat.jhsph.edu/~rpeng/). 
 
 ---------------------
+
 ## Models in R software ##
 
   Generally, the origin data from the Center for Disease Control and Prevention (CDC) was recorded as case with the information such as death date, cause of death and address. You can tidy up the data more conveniently by the package [**dplyr**](http://cran.r-project.org/web/packages/dplyr/index.html). Fox example, using the code as followed you can get the daily count for each city:

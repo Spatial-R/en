@@ -7,11 +7,11 @@
     <title>Spatial-R</title>
     <atom:link href="http://spatial-r.github.io/en/feed/" rel="self" type="application/rss+xml" />
     <link>http://chengjun.github.io</link>
-    <lastBuildDate>2015-03-27T17:46:35+08:00</lastBuildDate>
+    <lastBuildDate>2015-03-31T17:14:44+08:00</lastBuildDate>
     <webMaster>wangchj04@gmail.com</webMaster>
     
     <item>
-      <title>Methods for environmental epidemiology in R</title>
+      <title>Methods for Environmental Epidemiology in R</title>
       <link>http://spatial-r.github.io/en/2014/08/Methods-for-environmental-epidemiology-in-R/</link>
       <pubDate>2014-08-14T00:00:00+08:00</pubDate>
       <author>Spatial-R</author>
@@ -20,14 +20,16 @@
 （Some methods can be found in the book: <strong>**Statistical methods in environmental epidemiology with R: A case study in air pollution and health</strong>**. You can download it form <a href="http://bbs.pinggu.org/thread-710855-1-1.html">here</a>）</p>
 
 <hr />
-<p>## Time series and case-crossover</p>
+
+<h2 id="time-series-and-case-crossover">Time series and case-crossover</h2>
 
 <p>Time series and case-crossover analysis are the most common methods used to estimate the short effects of air pollution on health. Both methods typically treat the outcome as the counts representing the number of times a particular event occurred on a given day. Time series allows for over-dispersion  associated with the poisson distribution and controls for the long-term trend and seasonality using the nonparametric or parametric splines. The case-crossover method compares the exposure during a case day when the event occurred with the exposure in nearby control days and examine whether the event is associated with the exposure. It is obvious that the confounding related the individual characteristics are controlled by the design. Both methods have the advantage and weakness, therefore, the choose to the analysis method depends your purpose. Some experts also compared two methods and you can download the paper from <a href="http://www.sciencedirect.com/science/article/pii/S0048969710010983">here</a></p>
 
 <p>No matter which method you choose, you should download the <strong>tsModel</strong> package into R software. Thanks to Roger D. Peng, who have develop the package for statistical methods in environmental epidemiology. Another attribution for him is the reproducible research. His homepage can be found <a href="http://www.biostat.jhsph.edu/~rpeng/">here</a>. </p>
 
 <hr />
-<p>## Models in R software ##</p>
+
+<h2 id="models-in-r-software">Models in R software</h2>
 
 <p>Generally, the origin data from the Center for Disease Control and Prevention (CDC) was recorded as case with the information such as death date, cause of death and address. You can tidy up the data more conveniently by the package <a href="http://cran.r-project.org/web/packages/dplyr/index.html"><strong>dplyr</strong></a>. Fox example, using the code as followed you can get the daily count for each city:</p>
 
