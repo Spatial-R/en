@@ -3,9 +3,6 @@ layout: page
 title: "Curriculum Vitae"
 ---
 
-# Bing Zhang
-
--------------------------------
 ## Contact Information
 
 Zhejiang Provincial Center for Disease Control and Prevention (Zhejiang CDC)
