@@ -53,7 +53,7 @@
 
 <p>Time series and case-crossover analysis are the most common methods used to estimate the short effects of air pollution on health. Both methods typically treat the outcome as the counts representing the number of times a particular event occurred on a given day. Time series allows for over-dispersion  associated with the poisson distribution and controls for the long-term trend and seasonality using the nonparametric or parametric splines. The case-crossover method compares the exposure during a case day when the event occurred with the exposure in nearby control days and examine whether the event is associated with the exposure. It is obvious that the confounding related the individual characteristics are controlled by the design. Both methods have the advantage and weakness, therefore, the choose to the analysis method depends your purpose. Some experts also compared two methods and you can download the paper from <a href="http://www.sciencedirect.com/science/article/pii/S0048969710010983">here</a></p>
 
-<p>No matter which method you choose, you should download the <strong>tsModel</strong> package into R software. Thanks to Roger D. Peng, who have develop the package for statistical methods in environmental epidemiology. Another attribution for him is the reproducible research. His homepage can be found <a href="http://www.biostat.jhsph.edu/~rpeng/">here</a>. </p>
+<p>No matter which method you choose, you should download the <strong>tsModel</strong> package into R software. Thanks to Roger D. Peng, who have develop the package for statistical methods in environmental epidemiology. Another attribution for him is the reproducible research. His homepage can be found <a href="http://www.biostat.jhsph.edu/~rpeng/">here</a>.</p>
 
 <hr />
 
@@ -78,7 +78,7 @@
  +factor(dow)+factor(holiday),family=poisson,data=dat.fin)   
 </code></pre>
 
-<p>Here, <strong>ns()</strong> means a nature cubic spline; 7 degree for time ( ns(date,6&amp;7) represents the year in data is 6 year). Dichotomous variables indicating the day of week(Dow) and the public holidays (holiday) are also included in the model. The final composition is a nature cubic spline for temperature and humidity with 3 df, respectively. Sometimes, the model also include another variable <strong>factor(infectious)</strong> to adjust the impact from the infectious disease. </p>
+<p>Here, <strong>ns()</strong> means a nature cubic spline; 7 degree for time ( ns(date,6&amp;7) represents the year in data is 6 year). Dichotomous variables indicating the day of week(Dow) and the public holidays (holiday) are also included in the model. The final composition is a nature cubic spline for temperature and humidity with 3 df, respectively. Sometimes, the model also include another variable <strong>factor(infectious)</strong> to adjust the impact from the infectious disease.</p>
 
 <p>There are many different designs for choosing the control days in case-crossover study. **Time-stratified case crossover ** is commonly used for the fixed and disjointed time strata(eg., month). The code to case-crossover is as followed:</p>
 
@@ -87,7 +87,7 @@
 </code></pre>
 
 <p>Here, the argument <strong>factor(strata)</strong> is the big difference compared the time-series method. 
-  An appropriate time to stratify the date depends on your experience. The way to create the variable <strong>strata</strong> is not a difficult thing after the time strata is fixed.    </p>
+  An appropriate time to stratify the date depends on your experience. The way to create the variable <strong>strata</strong> is not a difficult thing after the time strata is fixed.</p>
 
 <hr />
 
@@ -152,6 +152,8 @@ $(function(){
         }
         else if (e.which == 39 || e.which == 75) {  // Right arrow and K
             
+        url = 'http://spatial-r.github.io/en/2015/07/R0/';
+        
         }
         if (url) {
             window.location = url;

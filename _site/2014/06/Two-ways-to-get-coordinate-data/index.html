@@ -44,7 +44,7 @@
         </nav>
         <article class="content">
         <section class="post">
-<p>The longlat data is essential prerequisite for the spatial analysis. Especially in epidemiology, the detail address data is there. The only thing you need do is to transfrom the address into the coordinate. If the data is not large, you can get the coordinate data one by one in <a href="http://maps.google.com/">google map</a> or <a href="http://maps.baidu.com/">baidu map</a>. However, when number of the data is above 50, the “input-copy” way is extremly boring and insecurity. Thanks to the open API in google map and baidu map, you can get the coordinate data very conveniently. Note the format of coordinate data in google map and baidu map is different. If you get the coordinate data from google map and then show it in baidu map, the deviation comes. </p>
+<p>The longlat data is essential prerequisite for the spatial analysis. Especially in epidemiology, the detail address data is there. The only thing you need do is to transfrom the address into the coordinate. If the data is not large, you can get the coordinate data one by one in <a href="http://maps.google.com/">google map</a> or <a href="http://maps.baidu.com/">baidu map</a>. However, when number of the data is above 50, the “input-copy” way is extremly boring and insecurity. Thanks to the open API in google map and baidu map, you can get the coordinate data very conveniently. Note the format of coordinate data in google map and baidu map is different. If you get the coordinate data from google map and then show it in baidu map, the deviation comes.</p>
 
 <h2 id="google-map">Google Map</h2>
 <p>Google place API is powerful in the tranformation for the english address. Make sure the format of the address is OK. You can copy the code into your R console before input your google place API(Apply for your API in <a href="https://code.google.com/apis/console/">https://code.google.com/apis/console/</a>). Note that the google maps api has a daily limit of 2,500 so that your vector shouldn’t be too long. The code you can find in Neal D. Goldstein, Amy H. Auchincloss and Brian K. Lee.</p>
@@ -67,7 +67,7 @@ get.latlong &lt;- function(data) {
 <p>Moreover, you can use the geoconv API 2.0 to transform the format of the geocoordinate data(form google map or sogou map to baidu map)</p>
 
 <h2 id="conclusion">Conclusion</h2>
-<p>Which way you choose is based on your data and the platform to show the result. Baidu map api is suitable for chinese address and google map is for english address. </p>
+<p>Which way you choose is based on your data and the platform to show the result. Baidu map api is suitable for chinese address and google map is for english address.</p>
 
 </section>
 <section class="meta">
