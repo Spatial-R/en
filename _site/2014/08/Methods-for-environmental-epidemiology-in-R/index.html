@@ -44,49 +44,49 @@
         </nav>
         <article class="content">
         <section class="post">
-<p>Recently, the short effect of air pollution on the mortality have drawn more and more attention in China. Many experts have try different methods to analysis the impact of air pollution on health. The study design has fallen into four types: ecological time series, case-crossover, panel and cohort studies. In general, the first three methods are the best way to analysis the short effect (acute effect), whereas the cohort study is used to estimate the acute and chronic effect of the air pollution. Here, i will introduce the ecological time series and case-crossover methods based on the R software. And later, i will cover the hierarchical model for multi-sites time series study to pooling the risk across locations. It is also noticed that two method also can be applied to other study, fox example, the short effect of meteorological factors on mortality or acute infectious disease. 
-（Some methods can be found in the book: <strong>**Statistical methods in environmental epidemiology with R: A case study in air pollution and health</strong>**. You can download it form <a href="http://bbs.pinggu.org/thread-710855-1-1.html">here</a>）</p>
+<p>Recently, the short effect of air pollution on the mortality have drawn more and more attention in China. Many experts have try different methods to analysis the impact of air pollution on health. The study design has fallen into four types: ecological time series, case-crossover, panel and cohort studies. In general, the first three methods are the best way to analysis the short effect (acute effect), whereas the cohort study is used to estimate the acute and chronic effect of the air pollution. Here, i will introduce the ecological time series and case-crossover methods based on the R software. And later, i will cover the hierarchical model for multi-sites time series study to pooling the risk across locations. It is also noticed that two method also can be applied to other study, fox example, the short effect of meteorological factors on mortality or acute infectious disease.
+（Some methods can be found in the book: <strong><strong>Statistical methods in environmental epidemiology with R: A case study in air pollution and health</strong></strong>. You can download it form <a href="http://bbs.pinggu.org/thread-710855-1-1.html">here</a>）</p>
 
 <hr />
 
-<h2 id="time-series-and-case-crossover">Time series and case-crossover</h2>
+<h2>Time series and case-crossover</h2>
 
-<p>Time series and case-crossover analysis are the most common methods used to estimate the short effects of air pollution on health. Both methods typically treat the outcome as the counts representing the number of times a particular event occurred on a given day. Time series allows for over-dispersion  associated with the poisson distribution and controls for the long-term trend and seasonality using the nonparametric or parametric splines. The case-crossover method compares the exposure during a case day when the event occurred with the exposure in nearby control days and examine whether the event is associated with the exposure. It is obvious that the confounding related the individual characteristics are controlled by the design. Both methods have the advantage and weakness, therefore, the choose to the analysis method depends your purpose. Some experts also compared two methods and you can download the paper from <a href="http://www.sciencedirect.com/science/article/pii/S0048969710010983">here</a></p>
+<p> Time series and case-crossover analysis are the most common methods used to estimate the short effects of air pollution on health. Both methods typically treat the outcome as the counts representing the number of times a particular event occurred on a given day. Time series allows for over-dispersion  associated with the poisson distribution and controls for the long-term trend and seasonality using the nonparametric or parametric splines. The case-crossover method compares the exposure during a case day when the event occurred with the exposure in nearby control days and examine whether the event is associated with the exposure. It is obvious that the confounding related the individual characteristics are controlled by the design. Both methods have the advantage and weakness, therefore, the choose to the analysis method depends your purpose. Some experts also compared two methods and you can download the paper from <a href="http://www.sciencedirect.com/science/article/pii/S0048969710010983">here</a></p>
 
-<p>No matter which method you choose, you should download the <strong>tsModel</strong> package into R software. Thanks to Roger D. Peng, who have develop the package for statistical methods in environmental epidemiology. Another attribution for him is the reproducible research. His homepage can be found <a href="http://www.biostat.jhsph.edu/~rpeng/">here</a>.</p>
+<p> No matter which method you choose, you should download the <strong>tsModel</strong> package into R software. Thanks to Roger D. Peng, who have develop the package for statistical methods in environmental epidemiology. Another attribution for him is the reproducible research. His homepage can be found <a href="http://www.biostat.jhsph.edu/~rpeng/">here</a>.</p>
 
 <hr />
 
-<h2 id="models-in-r-software">Models in R software</h2>
+<h2>Models in R software</h2>
 
-<p>Generally, the origin data from the Center for Disease Control and Prevention (CDC) was recorded as case with the information such as death date, cause of death and address. You can tidy up the data more conveniently by the package <a href="http://cran.r-project.org/web/packages/dplyr/index.html"><strong>dplyr</strong></a>. Fox example, using the code as followed you can get the daily count for each city:</p>
+<p>  Generally, the origin data from the Center for Disease Control and Prevention (CDC) was recorded as case with the information such as death date, cause of death and address. You can tidy up the data more conveniently by the package <a href="http://cran.r-project.org/web/packages/dplyr/index.html"><strong>dplyr</strong></a>. Fox example, using the code as followed you can get the daily count for each city:</p>
 
 <pre><code>dat.count&lt;-data.frame(summarise(group_by(dat.dis,date,city),count=n()));
 </code></pre>
 
-<p>In China, how to get the air pollution data and meteorologic factors such as daily temperature and humidity is indeed a big problem. The air pollution data can be obtained form the website. The way is showed in <a href="http://spatial-r.github.io/en/2014/06/How-to-get-air-quality-data-from-website/">my homepage</a>. However, you need make the compute work all the time for the updated data every hour. The meteorologic data can be obtained from the <a href="http://cdc.cma.gov.cn/home.do">China Meteorological Data Sharing Service System</a>. After all the data is ok, you can merge the air pollution data, meteorological data and the mortality data into one data. The code can be here:</p>
+<p>  In China, how to get the air pollution data and meteorologic factors such as daily temperature and humidity is indeed a big problem. The air pollution data can be obtained form the website. The way is showed in <a href="http://spatial-r.github.io/en/2014/06/How-to-get-air-quality-data-from-website/">my homepage</a>. However, you need make the compute work all the time for the updated data every hour. The meteorologic data can be obtained from the <a href="http://cdc.cma.gov.cn/home.do">China Meteorological Data Sharing Service System</a>. After all the data is ok, you can merge the air pollution data, meteorological data and the mortality data into one data. The code can be here:</p>
 
 <pre><code> dat.airmet&lt;-merge(dat.air,dat.mer,by=c("date","city"),all.y=T)
  dat.fin&lt;-merge(dat.airmet,dat.count,by=c("date","city"),all.y=T)
 </code></pre>
 
-<p>Here, The way to merge air pollution data and meteorological data is based on the function<strong>merge</strong> and set the argument <strong>by</strong> with <strong>c(“date”,”city”)</strong>. Therefore, you should make sure that both the <strong>dat.air</strong> (air pollution dat) and <strong>dat.mer</strong> (meteorological data) included the two variables <strong>date</strong> and <strong>city</strong>. The argument <strong>all.y=T</strong> mean that the dat.air was added to the dat.mer according to the date and city, just for the reason that the date in meteorological data is always completed. The final data may have some missing data for example the concentrations of air pollutants, you can complete it using the interpolation methods in <strong>xts</strong> package. There are some <a href="http://cos.name/cn/topic/129915/">example</a> you can learn.</p>
+<p>  Here, The way to merge air pollution data and meteorological data is based on the function<strong>merge</strong> and set the argument <strong>by</strong> with <strong>c("date","city")</strong>. Therefore, you should make sure that both the <strong>dat.air</strong> (air pollution dat) and <strong>dat.mer</strong> (meteorological data) included the two variables <strong>date</strong> and <strong>city</strong>. The argument <strong>all.y=T</strong> mean that the dat.air was added to the dat.mer according to the date and city, just for the reason that the date in meteorological data is always completed. The final data may have some missing data for example the concentrations of air pollutants, you can complete it using the interpolation methods in <strong>xts</strong> package. There are some <a href="http://cos.name/cn/topic/129915/">example</a> you can learn.</p>
 
-<p>Now, we will try the statistical methods and estimate the short effect of the air pollution on health. The time-series method is as followed:</p>
+<p>  Now, we will try the statistical methods and estimate the short effect of the air pollution on health. The time-series method is as followed:</p>
 
 <pre><code>res.ts&lt;-glm(count~pm10+ns(temperature,3)+ns(humidity,3)+ns(date,6*7)  
  +factor(dow)+factor(holiday),family=poisson,data=dat.fin)   
 </code></pre>
 
-<p>Here, <strong>ns()</strong> means a nature cubic spline; 7 degree for time ( ns(date,6&amp;7) represents the year in data is 6 year). Dichotomous variables indicating the day of week(Dow) and the public holidays (holiday) are also included in the model. The final composition is a nature cubic spline for temperature and humidity with 3 df, respectively. Sometimes, the model also include another variable <strong>factor(infectious)</strong> to adjust the impact from the infectious disease.</p>
+<p>  Here, <strong>ns()</strong> means a nature cubic spline; 7 degree for time ( ns(date,6&amp;7) represents the year in data is 6 year). Dichotomous variables indicating the day of week(Dow) and the public holidays (holiday) are also included in the model. The final composition is a nature cubic spline for temperature and humidity with 3 df, respectively. Sometimes, the model also include another variable <strong>factor(infectious)</strong> to adjust the impact from the infectious disease.</p>
 
-<p>There are many different designs for choosing the control days in case-crossover study. **Time-stratified case crossover ** is commonly used for the fixed and disjointed time strata(eg., month). The code to case-crossover is as followed:</p>
+<p>  There are many different designs for choosing the control days in case-crossover study. <strong>Time-stratified case crossover </strong> is commonly used for the fixed and disjointed time strata(eg., month). The code to case-crossover is as followed:</p>
 
 <pre><code> res.case&lt;-glm(count~pm10+ns(temperature,3)+ns(humidity,3)+factor(strata)  
   +factor(dow)+factor(holiday),family=poisson,data=dat.fin)
 </code></pre>
 
-<p>Here, the argument <strong>factor(strata)</strong> is the big difference compared the time-series method. 
+<p>  Here, the argument <strong>factor(strata)</strong> is the big difference compared the time-series method.
   An appropriate time to stratify the date depends on your experience. The way to create the variable <strong>strata</strong> is not a difficult thing after the time strata is fixed.</p>
 
 <hr />
@@ -127,7 +127,7 @@
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname ='SpatialRBing'; // required: replace example with your forum shortname
+    var disqus_shortname = 'yihui'; // required: replace example with your forum shortname
     var disqus_url = 'http://spatial-r.github.io/en/2014/08/Methods-for-environmental-epidemiology-in-R/';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
@@ -138,7 +138,6 @@
 </script>
 <noscript>Please enable JavaScript to view the <a href="http://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </section>
-
 
 <script type="text/javascript">
 $(function(){
