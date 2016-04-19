@@ -26,23 +26,21 @@ Email: zhangbing4502431@outlook.com; Homepage: <http://spatial-r.github.io/>
 
 1. Relationship between meteorological factors and parameters of air quality in wuhan by partial least squares regression[J]. Journal of Environmental &amp; Occupational Medicine,2014,31(4): 241-246.
 1. Spatial distributions of major air pollutants in 110 cities in China,2004-2008[J]. Journal of Environmental &amp; Occupational Medicine,2013,30(7): 498-502.
+1. Spatial-temporal distribution fecture of measles in Zhejiang Province, 2013[J]. Chin J Epidemio, 2016,37(4): 548-552.  
+1. Application of Spatial Statistics for Resource Allocation of Immunization Clinics in Zhejiang Prov-
+ince[J]. Chinese Journal of Vaccines and Immunization, 2016, 22(1):41-45. 
 
 ------------------------------
 
 ## Professional Experience
 
-I currently worked in the Zhejiang Provincial Center for Disease Control and Prevention
+I currently worked in the department of Immunization program, [Zhejiang Provincial Center for Disease Control and Prevention](http://www.cdc.zj.cn/bornwcms/Templets/new_cdc/english.htm), China
 
 -------------------------------------------
 
-## Computer Skills
+## Research Project
 
-I like playing with computer tools for building web pages and statistical computation & graphics. I improve the efficiency of my work with the aid of programming (i.e. work hard to be lazy).
+**Assessment to the impact of hepatitis B vaccine in Zhejiang province via the partially observed Markov process model**, which was supported by a grant from Zhejiang Province Project for Medical and Health Science and Technology (NO.2016152808)
 
-- Statistical software: [R](http://www.r-project.org/), [GIS](http://en.wikipedia.org/wiki/Geographic_information_system)
-- Languages: R, HTML, JavaScript
-- Applications: [LaTeX](http://www.latex-project.org/), [LyX](http://www.lyx.org)
-
-Listed above are what I'm very familiar with, and the ones being crossed out are due to my brain stack overflow and I do garbage collection in my brain once in a while.
 
 

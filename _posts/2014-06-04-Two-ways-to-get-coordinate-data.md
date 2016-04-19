@@ -18,7 +18,7 @@ Google place API is powerful in the tranformation for the english address. Make 
 
 
 ## Baidu Map
-Baed on the baidu map geocoding API v2.0, you can search for the coordinate for the chinese address. There is no daily limitation for this API. At the same time, you also can transform the Chinese address into english, then use the goole place API. The code is as follow:
+Baed on the baidu map geocoding API v2.0, you can search for the coordinate for the chinese address. There is no daily limitation for this API. At the same time, you also can transform the Chinese address into english, then use the google place API. The code is as follow:
 
 
     library(XML);library(stringr);library(RCurl);library(reshape)
