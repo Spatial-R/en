@@ -1,4 +1,4 @@
-markdown: kramdown
+markdown: rmarkdown
 permalink: /:year/:month/:title/
 url: http://spatial-r.github.io/en
 author: Spatial-R

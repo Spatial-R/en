@@ -46,9 +46,9 @@
         <section class="post">
 <p>Numerous packages in R sofware can help you creat the geographic map. Here, i will summarize the packages related to the map so as to visualizate your geographical data more conveniently.</p>
 
-<h2>Origin map data</h2>
+<h2 id="origin-map-data">Origin map data</h2>
 
-<p>If don't have the map data, you can download them from the <a href="http://www.gadm.org/">GADM</a> by the function <strong>getDate</strong> in the <strong>raster</strong> package. The website supplies the "RData" files (including four levels) which can be used in R environment directly. Alternatively, you can download the "shapefile" file and then use the function <strong>readShapePoly</strong> (in the maptools package) to read the data. Considering the specificity for  the china map, i had put all the relevant data in my github: <a href="https://github.com/Spatial-R/China-Map-Data">https://github.com/Spatial-R/China-Map-Data</a>. The codes to download the data from GADM are as follow:</p>
+<p>If don’t have the map data, you can download them from the <a href="http://www.gadm.org/">GADM</a> by the function <strong>getDate</strong> in the <strong>raster</strong> package. The website supplies the “RData” files (including four levels) which can be used in R environment directly. Alternatively, you can download the “shapefile” file and then use the function <strong>readShapePoly</strong> (in the maptools package) to read the data. Considering the specificity for  the china map, i had put all the relevant data in my github: <a href="https://github.com/Spatial-R/China-Map-Data">https://github.com/Spatial-R/China-Map-Data</a>. The codes to download the data from GADM are as follow:</p>
 
 <pre><code>library(raster)
 adm &lt;- getData('GADM', country='China', level=1)
@@ -58,9 +58,9 @@ adm3 &lt;- getData('GADM', country='Macao', level=0)
 plot(adm);plot(adm1, add = T);plot(adm2, add = T);plot(adm3, add = T)
 </code></pre>
 
-<p>The <strong>maps</strong> package also supplies the map data for the world. However, the data is out of date and the China data doesn't show the Chongqing city. Generally speaking, the data from GAMD is the best choose.</p>
+<p>The <strong>maps</strong> package also supplies the map data for the world. However, the data is out of date and the China data doesn’t show the Chongqing city. Generally speaking, the data from GAMD is the best choose.</p>
 
-<h2>Sp and maptools package</h2>
+<h2 id="sp-and-maptools-package">Sp and maptools package</h2>
 
 <p>Sp and maptools package are the basic packages in R sofware to deal with the shapefile file. After you have read the map data, you just use the <strong>plot</strong> function to get the map.</p>
 
@@ -72,16 +72,15 @@ points(x=120.2,y=30.3,col="red");text(x=120.2,y=30.3,"Hangzhou",col="Blue")
 
 <p>The way to fill the polys and points with different colors can be found in <a href="http://site.douban.com/182577/widget/notes/10568279/note/257898418/">here</a> and <a href="http://yihui.name/cn/2008/10/china-map-and-city-locations-with-r/">here</a>.</p>
 
-<h2>Rworldmap package</h2>
+<h2 id="rworldmap-package">Rworldmap package</h2>
 
 <p>Rworldmap is a package for visualising global data, concentrating on data referenced by country codes or gridded at half degree resolution. The mapping process then involves 3 steps (or 2 if your data are already in an R dataframe):</p>
 
 <ol>
-<li>read data into R</li>
-<li>join data to a map (using function <strong>joinCountryData2Map()</strong>)</li>
-<li>display the map (using function <strong>mapCountryData</strong>)</li>
+  <li>read data into R</li>
+  <li>join data to a map (using function <strong>joinCountryData2Map()</strong>)</li>
+  <li>display the map (using function <strong>mapCountryData</strong>)</li>
 </ol>
-
 
 <p>The example is as follow:</p>
 
@@ -92,8 +91,7 @@ mapParams &lt;- mapCountryData( sPDF, nameColumnToPlot="BIODIVERSITY",addLegend=
 do.call( addMapLegend, c(mapParams, legendWidth=0.5, legendMar =4))
 </code></pre>
 
-<h2>Ggplot2 package</h2>
-
+<h2 id="ggplot2-package">Ggplot2 package</h2>
 <p>Ggplot2 package offers great power to plot data in R. The plots are designed to comply with the grammar of graphics philosophy and can be produced to a publishable level relatively easily. After you have read the shapefile data in R, the <strong>fortify</strong> function can be applied to transformed the shapefile to dataframe which can be directly used to the ggplot2 plot. The example is follow:</p>
 
 <pre><code> library(maptools);library(ggplot2)
@@ -103,9 +101,10 @@ do.call( addMapLegend, c(mapParams, legendWidth=0.5, legendMar =4))
  geom_path(aes(long,lat, group=group, fill=hole), color="black", size=0.3)
 </code></pre>
 
-<h2>Googlemap</h2>
+<h2 id="googlemap">Googlemap</h2>
 
-<p>Ggmap,plotGoogleMaps and RgoogleMaps packages can use the googlemap API to get or display the map data. Moreover, the downloaded map can combine with ggplot package. However, the googla map doesn't work in China for a long time.</p>
+<p>Ggmap,plotGoogleMaps and RgoogleMaps packages can use the googlemap API to get or display the map data. Moreover, the downloaded map can combine with ggplot package. However, the googla map doesn’t work in China for a long time.</p>
+
 
 </section>
 <section class="meta">
@@ -143,7 +142,7 @@ do.call( addMapLegend, c(mapParams, legendWidth=0.5, legendMar =4))
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'yihui'; // required: replace example with your forum shortname
+    var disqus_shortname = 'httpspatialrgithubio'; // required: replace example with your forum shortname
     var disqus_url = 'http://spatial-r.github.io/en/2014/07/Static-Maps-In-R/';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {

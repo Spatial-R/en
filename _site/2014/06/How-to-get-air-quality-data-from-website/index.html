@@ -46,8 +46,7 @@
         <section class="post">
 <p>More people were concerned about the air quality in China, espicially the concentration of PM2.5 that is believed to pose the greatest health risks. If you want to analysis the relationship between the air pollution or tempreture and the mortality, the access to the data on the air pollutants is requsite. Here, i will introduce three ways to get the air quality data from the website.</p>
 
-<h2>Frist website</h2>
-
+<h2 id="frist-website">Frist website</h2>
 <p>The website: <a href="http://aqicn.org/map/cn/">http://aqicn.org/map/cn/</a> supplies the real-time air quality index for PM10,PM2.5,SO2,NO2,O3 and NO. You can backstepping the concentration for each air pollutant based on the air quality index, respectively. The format to air quality index is in the China air quality standard (2012). Moreover, the website gives the meteorology data such as Temperature, dew point temperature, pressure,humidity and wind speed. The code to catch the data is as follow:</p>
 
 <pre><code>require(RCurl);require(XML);require(rjson);library(reshape);library(data.table)
@@ -76,8 +75,7 @@ file.name = paste(now.time, "-pollutant", ".csv", sep = "")
 dat = ldply(data, rbind.fill)
 </code></pre>
 
-<h2>Second website</h2>
-
+<h2 id="second-website">Second website</h2>
 <p>The website: <a href="http://www.pm25.in/api_doc">http://www.pm25.in/api_doc</a> supply an API to the data in National Bureau of Environmental Protection. You just apply for a appkey and then you can get the air quality data in 190 cities in China conveniently. The website also provide detailed materials about the way to ues the appkey. Thanks to the <a href="http://weibo.com/gzanson?sudaref=www.pm25.in">anson</a> and his team. The code is as follow:</p>
 
 <pre><code> library(RCurl);library(XML);library(plyr)
@@ -86,8 +84,7 @@ dat = ldply(data, rbind.fill)
  pm4=apply(pm3,2,as.character); dt=gsub("-","",substr(pm4[1,21],1,13))
 </code></pre>
 
-<h2>Third website</h2>
-
+<h2 id="third-website">Third website</h2>
 <p>Some website also punish the air quality data for certain city. For example, the Haikou municipal environmental protection bureau provide the data in its website:<a href="http://220.174.250.107:9808/Views/Home/AirCityIndex.aspx">http://220.174.250.107:9808/Views/Home/AirCityIndex.aspx</a>. You also can use R to download the data. The code is follow:</p>
 
 <pre><code>library(XML);library(RCurl)
@@ -97,9 +94,9 @@ dat&lt;-readHTMLTable(getURL(url),as.data.frame=TRUE,which=5)
  y=paste(as.Date(now),"-",as.POSIXlt(now)$hour,".csv",sep="")
 </code></pre>
 
-<h2>Conclusion</h2>
-
+<h2 id="conclusion">Conclusion</h2>
 <p>Based on the R sofware, you can get the air quality data very conveniently. However, if you want to collect the data consistently, the while loop will work well and let your compute run the code in the certain time, for example in the integral point.</p>
+
 
 </section>
 <section class="meta">
@@ -137,7 +134,7 @@ dat&lt;-readHTMLTable(getURL(url),as.data.frame=TRUE,which=5)
 <div id="disqus_thread"></div>
 <script type="text/javascript">
     /* * * CONFIGURATION VARIABLES: EDIT BEFORE PASTING INTO YOUR WEBPAGE * * */
-    var disqus_shortname = 'yihui'; // required: replace example with your forum shortname
+    var disqus_shortname = 'httpspatialrgithubio'; // required: replace example with your forum shortname
     var disqus_url = 'http://spatial-r.github.io/en/2014/06/How-to-get-air-quality-data-from-website/';
     /* * * DON'T EDIT BELOW THIS LINE * * */
     (function() {
