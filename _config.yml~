@@ -1,5 +1,5 @@
 markdown: kramdown
-permalink: /:year/:month/:title/
+permalink: /:year-:month-:day-:title/
 url: http://spatial-r.github.io/en
 author: Spatial-R
 pygments: true
