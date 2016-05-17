@@ -10,24 +10,25 @@ tags:
 - Epidemiology
 ---
 
-This is my reading notes from the paper: **Pertussis immunity and epidemiology: mode and duration of vaccine-induced immunity**, which was subjected on the **nature**, **degree** and **durability** of the vaccine protection. 
+This is my reading notes from the paper: **Pertussis immunity and epidemiology: mode and duration of vaccine-induced immunity**, which was subjected on the **nature**, **degree** and **durability** of the vaccine protection.  As the analysis codes were published on the website, therefore, i just have been editing the codes to suit the **mumps** (a contagious disease often breaks out in the highly vaccinated population recently) data in Zhejiang Province.  
 
 ------------------------------------------------------------------
 
 ## Background
 
 - The resurgence of pertussis in some countries that maintain high vaccination coverage have drawn attention to the gaps in our understanding of the epidemiology effects of the pertussis vaccine.
--  Candiate explantations range from the vaccine-driven evaluation of the aetiological agent, to the changes of the reporting and surveillance and lossing the efficience due to the swith from the whole  cell pertussis vaccine to aP.
+-  Candiate explantations range from the vaccine-driven evaluation of the aetiological agent, to the changes of the reporting and surveillance and lossing the efficience due to the swith from the whole cell pertussis vaccine to aP.
 - The nature of the vaccine-induced protection can leave district footprints in the transient disease incidence patterns following the roll out of a vaccination program.
 - The mode of the vaccine failure can determine the depth and duration of the honeymoon period, as well as the characteristics of the resurgence.
 -  Alought the immune memory shapes the epidemiological dynamics, the uncertainty can be reudced by the mechanistic model.  
 
-
 ------------------------------------------------------------------
 
-## Vaccine effect 
+## Introduction
 
-The vaccine effect on the vaccine-preventable disease includes two part: Immunity against infection and immunity against transmission and disease.  
+It has been shown that the nature of vaccine-induced protection can leave distinct footprints in the transient disease incidence patterns following the roll out a vaccination programme.  In particular, the mode of the vaccine failure can determine the depth and duration of the honeymoon period, as well as the characteristcs of the resurgence.   
+
+Vaccine effect on vaccine-preventable disease includes two aspects: Immunity against infection and immunity against transmission and disease.  This is also the key point to understand the model structure and the flow among the different comparments. 
 
 ### Immunity against infection
 
@@ -64,7 +65,9 @@ Even when a vaccine fail to provide the protection against infection, it might s
 
 ### Model
 
-A standard Susceptible-exposed-infected-recoverd (SEIR) model with eight compartments. It includes two compartments each of susceptible (S_{i}), exposed(E_{I}) and infected (I_{i})  compartments in order to  distinguish individuals who were never vaccinated (i=1) from those who vaccinated (i=2).  The vaccinated compartment contained individuals who were vaccinated and still maintain some vaccine-derived protection against infection. In others words, there are a spectrum of models, differing in certain parameters and not in others, that were all roughly equally well-supported by the data.   In others words, there are a spectrum of models, differing in certain parameters and not in others, that were all roughly equally well-supported by the data.   
+A standard Susceptible-exposed-infected-recoverd (SEIR) model with eight compartments. It includes two compartments each of susceptible (S_{i}), exposed(E_{I}) and infected (I_{i})  compartments in order to  distinguish individuals who were never vaccinated (i=1) from those who vaccinated (i=2).  The vaccinated compartment contained individuals who were vaccinated and still maintain some vaccine-derived protection against infection. In others words, there are a spectrum of models, differing in certain parameters and not in others, that were all roughly equally well-supported by the data. 
+
+One dimensional likelihood profile was performed to provide the value of the best likelihoods which can be obtained at the fixed values of the profile parameter by maximizing over all the remaining model parameters.  Fox each region, we started the profiling procedure by **dividing the profile parameter's given range into equally spaced intervals** , then,  we gathered all the points from the early searches where the profile parameter had values that fell within the interval and selected the point with the highest likelihood.  To refine the profine on the initial profile, we created the seven copies of the initial and perturbed the value of the profile paramter by multiplying it by the 0.95^3, 0.95^2,0.95, 1.00,1.05,1.05^2,1.05^3( It depends on the **rw.sd**  arguement).  A local proflle was generated for each region using the 100 equally spaced intervals over the entire allowed range of each profile parameter and selected the points with the highest likehood whose profile parameter falls within the interval. ** A function was then fit through the collection of points using local regression**(l[ocfit](http://mirror.bjtu.edu.cn/cran/web/packages/locfit/index.html) package). 
 
 ------------------------------------------------------------------
 
