@@ -28,7 +28,7 @@ RRID is a repository that includes the resources for the research on infectious 
 
 *Combined dataset*
 
-* [Taiwan National Infectious Disease Statistics System](https://nidss.cdc.gov.tw/en/Default.aspx): provides **weekly** datasets from the Taiwan National Infectius Disease Surveillance System. You can download the case dataset with other infromations such as gentle, country,age group with the interval at 5 years. 
+*[Taiwan National Infectious Disease Statistics System](https://nidss.cdc.gov.tw/en/Default.aspx): provides **weekly** datasets from the Taiwan National Infectius Disease Surveillance System. You can download the case dataset with other infromations such as gentle, country,age group with the interval at 5 years. 
 
 * [Ministry of Health in Singapore](https://www.moh.gov.sg/content/moh_web/home/statistics/infectiousDiseasesStatistics/weekly_infectiousdiseasesbulletin.html): provides **weekly** notifiable disease including Dengue Fever, Acute Upper Respiratory Tract infections, Chickenpox and Acute Diarrhoea in **Singapore**. 
 
