@@ -87,6 +87,8 @@ The dataset resources for flu have been aggregated in  the [res4flu](https://git
 
 [Immunization schedule for countries](http://apps.who.int/immunization_monitoring/globalsummary/diseases): immunization schedule by disease or country, which is collected by the WHO. 
 
+-------------------------------------------------------------------------
+
 ## Software Packages
 
 [R0](https://cran.r-project.org/web/packages/R0/index.html): estimation of R0 and real-time reproduction number from epidemics.
@@ -133,6 +135,8 @@ The dataset resources for flu have been aggregated in  the [res4flu](https://git
 
 [rcaaqs](https://github.com/bcgov/rcaaqs):  faciliate the calculation of air quality metrics according to Canadian Ambient Air Quality Standards. 
 
+-------------------------------------------------------------------------
+
 ## Risk Assessment
 
 [Vector-borne Disease Airport Importation Risk Tool](http://www.vbd-air.com/): using the method published in the nature journal: [The global distribution and burden of dengue](http://www.nature.com/nature/journal/v496/n7446/full/nature12060.html) and [Web-based GIS: the vector-borne disease airline importation risk (VBD-AIR) tool](http://ij-healthgeographics.biomedcentral.com/articles/10.1186/1476-072X-11-33).
@@ -142,6 +146,9 @@ The dataset resources for flu have been aggregated in  the [res4flu](https://git
 [heemod](https://github.com/pierucci/heemod): models for health economic evaluation. Features: accounting for time-dependency, probabilistic uncertainty analysis, and deterministic sensitivity analysis. Most of the analyses presented in [Decision Modelling for Health Economic Evaluation](https://www.amazon.com/Decision-Modelling-Economic-Evaluation-Handbooks/dp/0198526628) can be performed with heemod.
 
 [Assessing the Impact of OCV Use on Protection and Epidemic Risk](http://iddynamics.jhsph.edu/apps/shiny/ocvtools/): This tool estimates the proportion of the population directly protected from vaccine, the number of cases prevented (direct + indirect effects), and the final number expected to be infected for a given population size and vaccine coverage (required inputs). 
+
+
+-------------------------------------------------------------------------
 
 ## Public Codes
 
@@ -168,6 +175,9 @@ Infection and Incubation Period. Emerging Infectious Diseases, 22(3): 526-528.
 
 [pomp-astic inference methods for epidemic models illustrated on German rotatvirus surveillance data](https://github.com/theresasophia/pomp-astic): calculate the mle with iterated filtering using the pomp package for what is refered to as Model StSt+ in the manuscript.
 
+
+-------------------------------------------------------------------------
+
 ## Famious Lab
 
 [DELPHI](http://delphi.midas.cs.cmu.edu/): Developming the theory and practice of epidemiological forecasting. [Github](https://github.com/cmu-delphi/). Publicly Available Tools: Epidemiological time series visualizer ([EpiVis](http://delphi.midas.cs.cmu.edu/epivis/epivis.html)), API to automatically updated epidemiological data sources ([Epi-Data](https://github.com/cmu-delphi/delphi-epidata)) and Visual comparison of scored submissions to CDC's Predict the Flu Challenge([FluScores](http://delphi.midas.cs.cmu.edu/misc/fluscores/)).
@@ -190,13 +200,18 @@ Infection and Incubation Period. Emerging Infectious Diseases, 22(3): 526-528.
   
 [seeg lab](spatial ecology and epidemiology group): spatial ecology and epidemiology group in Department of Zoology, University of Oxford. [movement](https://github.com/SEEG-Oxford/movement): analysis of movement data in disease modelling and mapping, [seegMBG](https://github.com/SEEG-Oxford/seegMBG): contain a number of miscellaneous functions to streamline model-based geostatistical analyses as applied in several SEEG projects, [seegSDM](https://github.com/SEEG-Oxford/seegSDM): Streamlined Functions for Species Distribution Modelling in the SEEG Research Group. 
  
-* [SpeLL](https://github.com/lgautier/project-tycho-utilities):  concerned with baseline works on the denominator, i.e. the number of hosts, which are key spatial variables used in most epidemiological models, and we actively work on the improvement of large-scale data sets on the distribution of human and livestock populations. A second focus of active research is the spatial epidemiology of avian influenza, a major disease of poultry with a strong zoonotic potentia.
+[SpeLL](https://github.com/lgautier/project-tycho-utilities):  concerned with baseline works on the denominator, i.e. the number of hosts, which are key spatial variables used in most epidemiological models, and we actively work on the improvement of large-scale data sets on the distribution of human and livestock populations. A second focus of active research is the spatial epidemiology of avian influenza, a major disease of poultry with a strong zoonotic potentia.
  
-* [Wan Yang](http://www.columbia.edu/~wy2202/Research.html): applies mathematical modeling and Bayesian inference methods to study the transmission dynamics of infectious diseases such as influenza, Ebola, and measles. how environmental factors influence the transmission of influenza, its seasonality, and the underlying mechanisms. 
+[Wan Yang](http://www.columbia.edu/~wy2202/Research.html): applies mathematical modeling and Bayesian inference methods to study the transmission dynamics of infectious diseases such as influenza, Ebola, and measles. how environmental factors influence the transmission of influenza, its seasonality, and the underlying mechanisms. 
   
+  
+-------------------------------------------------------------------------
+
 ## Contributing
 
 Your contributions are always welcome! If you have additional resources on infectious disease, please open an issue in [here](https://github.com/Spatial-R/RRID/issues).
+
+-------------------------------------------------------------------------
 
 ## License
 
