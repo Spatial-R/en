@@ -5,13 +5,13 @@ title: "Curriculum Vitae"
 
 ## Contact Information
 
-Zhejiang Provincial Center for Disease Control and Prevention (Zhejiang CDC)
+Guangdong Provincial Institute of Public Health
 Email: zhangbing4502431@outlook.com; Homepage: <http://spatial-r.github.io/>
 
 ----------------------------------
 
 ## Research Interest
-   Spatial analysis, Spatial-temporal, Data visualization.
+   Dynamic model, Spatial analysis, Spatial-temporal, Data visualization.
 
 -------------------------------------
 
@@ -31,7 +31,8 @@ Email: zhangbing4502431@outlook.com; Homepage: <http://spatial-r.github.io/>
 
 ## Professional Experience
 
-I currently worked in the Zhejiang Provincial Center for Disease Control and Prevention
+- 2014.07 - 2016.07: Zhejiang Provincial Center for Disease Control and Prevention
+- 2016.09 - now: Guangdong Provincial Institute of Public Health
 
 -------------------------------------------
 
